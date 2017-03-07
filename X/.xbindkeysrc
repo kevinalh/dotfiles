@@ -1,0 +1,18 @@
+# Increase brightness
+"xbacklight +1"
+  Mod2 + XF86MonBrightnessUp
+# Decrease brightness
+"xbacklight -1"
+  Mod2 + XF86MonBrightnessDown
+# Increase volume (ponymix doesn't go further than 100)
+"ponymix unmute; ponymix increase 2"
+  Mod2 + XF86AudioRaiseVolume
+# Decrease volume
+"ponymix decrease 2"
+  Mod2 + XF86AudioLowerVolume
+# Toggle audio
+"ponymix toggle"
+  Mod2 + XF86AudioMute
+# Toggle microphone
+"pactl set-source-mute 1 toggle"
+  Mod2 + XF86AudioMicMute

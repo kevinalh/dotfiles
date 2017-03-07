@@ -1,0 +1,16 @@
+#include "Xresources.d/colors/solarized/solarized-light-new"
+
+URxvt.font: xft:Source\ Code\ Pro\ Medium:pixelsize=15:antialias=true:hinting=true,xft:Source\ Code\ Pro\ Medium:pixelsize=15:antialias=true:hinting=true
+!URxvt.color12: rgb:5c/5c/ff
+URxvt.intensityStyles: false
+URxvt.perl-ext-common: selection-to-clipboard
+! URxvt.font: xft:monaco:size=15
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
