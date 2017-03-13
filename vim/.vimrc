@@ -14,6 +14,8 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+"colorscheme solarized
+
 " Except for makefiles
 autocmd FileType make setlocal noexpandtab
 
@@ -21,6 +23,16 @@ autocmd FileType make setlocal noexpandtab
 autocmd FileType python set sw=4
 autocmd FileType python set ts=4
 autocmd FileType python set sts=4
+
+" Pandoc plugin
+let g:pandoc#syntax#conceal#use = 0
+let g:pandoc#syntax#codeblocks#embeds#langs = ["ruby", "c", "cpp", "cmake", "haskell"]
+let g:pandoc#modules#disabled=["spell"]
+
+" Spell check
+set spelllang=es
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=red
 
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
 let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
@@ -56,6 +68,10 @@ let g:syntastic_python_flake8_args="--ignore=E501"
 " use jshint
 let g:syntastic_javascript_checkers = ['jshint']
 
+" for highlighting issues
+highlight SyntasticError ctermbg=224
+highlight SyntasticWarning ctermbg=194
+
 let mapleader = ","
 
 " let g:solarized_visibility = "high"
@@ -90,19 +106,39 @@ endfunction
 
 nnoremap <silent> <leader>e :<C-u>call ToggleErrors()<CR>
 
+
 call plug#begin()
 
 " Make sure you use single quotes
 
-Plug 'scrooloose/nerdtree'
+" Previously used but not anymore
+
 " Plug 'altercation/vim-colors-solarized'
-Plug 'morhetz/gruvbox'
+
+" Plug 'morhetz/gruvbox'
+
+" For project-specific configuration
+"Plug 'LucHermitte/lh-vim-lib'
+"Plug 'LucHermitte/local_vimrc'
+
+" NERDTree
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+
+" YouCompleteMe
 Plug 'Valloric/YouCompleteMe'
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+
+" JavaScript
 Plug 'ternjs/tern_for_vim'
+
+" TypeScript
+Plug 'Quramy/tsuquyomi'
+Plug 'HerringtonDarkholme/yats.vim'
+
 Plug 'scrooloose/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'tpope/vim-surround'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'eagletmt/ghcmod-vim'
@@ -114,13 +150,13 @@ Plug 'elzr/vim-json'
 Plug 'tpope/vim-unimpaired'
 Plug 'lervag/vimtex'
 Plug 'neovimhaskell/haskell-vim'
-" TypeScript
-Plug 'Quramy/tsuquyomi'
-Plug 'HerringtonDarkholme/yats.vim'
+
 " Markdown
-Plug 'godlygeek/tabular'
 " Plug 'plasticboy/vim-markdown'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
+Plug 'godlygeek/tabular'
 
 " For git support
 Plug 'tpope/vim-fugitive'
@@ -128,17 +164,12 @@ Plug 'tpope/vim-fugitive'
 " Semantic color
 Plug 'jeaye/color_coded'
 
-" For project-specific configuration
-"Plug 'LucHermitte/lh-vim-lib'
-"Plug 'LucHermitte/local_vimrc'
-
 " For CMake
 Plug 'jalcine/cmake.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
 
-" colorscheme solarized
 " set background=light
 " let g:solarized_termcolors=256
 syntax enable
@@ -196,3 +227,5 @@ let g:airline_symbols.whitespace = 'Ξ'
 "let g:airline_symbols.linenr = ''
 
 set laststatus=2
+
+
