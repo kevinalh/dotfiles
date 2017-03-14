@@ -86,6 +86,13 @@ fi
 
 alias sdcv="sdcv --color"
 
+# Specific for college
+function alg(){
+    alias alg="~/workspace/algoritmia"
+    cd ~/workspace/algoritmia
+    source ~/workspace/algoritmia/tools/build/cblock.zsh
+}
+
 # For activating a Python environment
 function pactivate(){
     if [ -d "$HOME/pyvenvs" -a "$1" != "" ]

@@ -27,7 +27,7 @@ autocmd FileType python set sts=4
 " Pandoc plugin
 let g:pandoc#syntax#conceal#use = 0
 let g:pandoc#syntax#codeblocks#embeds#langs = ["ruby", "c", "cpp", "cmake", "haskell"]
-let g:pandoc#modules#disabled=["spell"]
+let g:pandoc#modules#disabled=["spell", "folding"]
 
 " Spell check
 set spelllang=es
