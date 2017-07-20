@@ -49,7 +49,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(python ruby colored-man-pages rvm rails)
+plugins=(python colored-man-pages)
 
 # User configuration
 
@@ -86,13 +86,6 @@ fi
 
 alias sdcv="sdcv --color"
 
-# Specific for college
-function alg(){
-    alias alg="~/workspace/algoritmia"
-    cd ~/workspace/algoritmia
-    source ~/workspace/algoritmia/tools/build/cblock.zsh
-}
-
 # For activating a Python environment
 function pactivate(){
     if [ -d "$HOME/pyvenvs" -a "$1" != "" ]
@@ -110,7 +103,7 @@ function pactivate(){
 }
 
 # For Bundler
-export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+# export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
 # For cdr
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
@@ -118,3 +111,26 @@ add-zsh-hook chpwd chpwd_recent_dirs
 
 # For R
 export R_ENVIRON_USER="~/.Renviron"
+
+# For Netbeans
+export _JAVA_AWT_WM_NONREPARENTING=1
+alias netbeans="netbeans -J-Dswing.aatext=true -J-Dawt.useSystemAAFontSettings=on"
+
+# For quickly moving to working environments
+function src() {
+    cd ~/workspace/$1;
+}
+compctl -W ~/workspace -/ src
+
+# For NPM global packages
+export PATH=~/.npm-global/bin:$PATH
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"
+
+# [[ -r "$HOME/.rvm/scripts/completion" ]] && source "$HOME/.rvm/scripts/completion"
+
+# There's a GEM_HOME somewhere but I can't find it
+unset GEM_HOME
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

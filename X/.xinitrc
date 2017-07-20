@@ -50,7 +50,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-xinput set-prop "AlpsPS/2 ALPS DualPoint Stick" "libinput Accel Speed" 0.6 &
+xinput set-prop "AlpsPS/2 ALPS DualPoint Stick" "libinput Accel Speed" 0.9 &
 xset -b &
 
 exec redshift &

@@ -8,6 +8,8 @@ set showcmd
 set t_Co=16
 set tags=./tags;/
 
+set hidden
+
 " Tabs
 set tabstop=4
 set shiftwidth=4
@@ -49,7 +51,6 @@ if !exists("g:ycm_semantic_triggers")
     let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
-
 
 " Syntastic recommended settings
 set statusline+=%#warningmsg#
@@ -130,10 +131,10 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 " JavaScript
-Plug 'ternjs/tern_for_vim'
+" Plug 'ternjs/tern_for_vim'
 
 " TypeScript
-Plug 'Quramy/tsuquyomi'
+" Plug 'Quramy/tsuquyomi'
 Plug 'HerringtonDarkholme/yats.vim'
 
 Plug 'scrooloose/syntastic'
@@ -145,11 +146,13 @@ Plug 'eagletmt/ghcmod-vim'
 Plug 'tpope/vim-sensible'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
-Plug 'othree/javascript-libraries-syntax.vim'
+" Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'elzr/vim-json'
 Plug 'tpope/vim-unimpaired'
 Plug 'lervag/vimtex'
 Plug 'neovimhaskell/haskell-vim'
+
+Plug 'editorconfig/editorconfig-vim'
 
 " Markdown
 " Plug 'plasticboy/vim-markdown'
@@ -166,6 +169,13 @@ Plug 'jeaye/color_coded'
 
 " For CMake
 Plug 'jalcine/cmake.vim'
+
+" C / C++
+Plug 'vim-scripts/Conque-GDB'
+Plug 'vim-scripts/STL-improved'
+
+" Auto close brackets, etc
+Plug 'cohama/lexima.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -227,5 +237,5 @@ let g:airline_symbols.whitespace = 'Ξ'
 "let g:airline_symbols.linenr = ''
 
 set laststatus=2
-
+set mouse=a
 
