@@ -105,6 +105,8 @@ function pactivate(){
 # For Bundler
 # export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
+export XDG_CONFIG_HOME="~/.config/"
+
 # For cdr
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs

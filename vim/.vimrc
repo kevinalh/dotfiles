@@ -21,6 +21,14 @@ set expandtab
 " Except for makefiles
 autocmd FileType make setlocal noexpandtab
 
+" Competitive programming
+
+function TestCase(n)
+    exec './'.shellescape('%:r').' < '.shellescape('%:r').'-'.a:n.'.in'<CR>
+endfunction
+
+autocmd FileType cpp nnoremap <F9> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+
 " From Django docs
 autocmd FileType python set sw=4
 autocmd FileType python set ts=4
@@ -51,6 +59,8 @@ if !exists("g:ycm_semantic_triggers")
     let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
+
+let g:ycm_global_ycm_extra_conf = '/home/kevinalh/.ycm_extra_conf.py'
 
 " Syntastic recommended settings
 set statusline+=%#warningmsg#
