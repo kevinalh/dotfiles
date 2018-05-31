@@ -1,11 +1,12 @@
 filetype plugin on
 filetype indent on
+syntax enable
 set number
 set ff=unix
 set showcmd
 
 " set nocompatible
-set t_Co=16
+set t_Co=256
 set tags=./tags;/
 
 set hidden
@@ -15,8 +16,6 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-
-"colorscheme solarized
 
 " Except for makefiles
 autocmd FileType make setlocal noexpandtab
@@ -40,7 +39,7 @@ let g:pandoc#syntax#codeblocks#embeds#langs = ["ruby", "c", "cpp", "cmake", "has
 let g:pandoc#modules#disabled=["spell", "folding"]
 
 " Spell check
-set spelllang=es
+set spelllang=en
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=red
 
@@ -50,8 +49,8 @@ let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language
 let g:ycm_complete_in_comments = 0 " Completion in comments
 let g:ycm_complete_in_strings = 0 " Completion in string
 
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_autoclose_preview_window_after_insertion=1
+let g:ycm_autoclose_preview_window_after_completion=0
+let g:ycm_autoclose_preview_window_after_insertion=0
 
 let g:ycm_server_python_interpreter='/usr/bin/python2'
 
@@ -72,6 +71,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+" C++
+let g:syntastic_cpp_compiler = "g++"
+let g:syntastic_cpp_compiler_options = "-std=c++14 -Wall"
+
 " Ignore E501
 let g:syntastic_python_checkers=["flake8"]
 let g:syntastic_python_flake8_args="--ignore=E501"
@@ -84,9 +87,6 @@ highlight SyntasticError ctermbg=224
 highlight SyntasticWarning ctermbg=194
 
 let mapleader = ","
-
-" let g:solarized_visibility = "high"
-" let g:solarized_contrast = "normal"
 
 map <leader>n <plug>NERDTreeTabsToggle<CR>
 nmap <leader>t :TagbarToggle<CR>
@@ -120,14 +120,6 @@ nnoremap <silent> <leader>e :<C-u>call ToggleErrors()<CR>
 
 call plug#begin()
 
-" Make sure you use single quotes
-
-" Previously used but not anymore
-
-" Plug 'altercation/vim-colors-solarized'
-
-" Plug 'morhetz/gruvbox'
-
 " For project-specific configuration
 "Plug 'LucHermitte/lh-vim-lib'
 "Plug 'LucHermitte/local_vimrc'
@@ -159,25 +151,33 @@ Plug 'vim-airline/vim-airline'
 " Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'elzr/vim-json'
 Plug 'tpope/vim-unimpaired'
-Plug 'lervag/vimtex'
+
+" Latex
+Plug 'vim-latex/vim-latex'
+" Plug 'lervag/vimtex'
+
+" Haskell
 Plug 'neovimhaskell/haskell-vim'
 
+" Editorconfig
 Plug 'editorconfig/editorconfig-vim'
 
 " Markdown
 " Plug 'plasticboy/vim-markdown'
+
+" Pandoc
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
 Plug 'godlygeek/tabular'
 
-" For git support
+" Git support
 Plug 'tpope/vim-fugitive'
 
 " Semantic color
 Plug 'jeaye/color_coded'
 
-" For CMake
+" CMake
 Plug 'jalcine/cmake.vim'
 
 " C / C++
@@ -187,12 +187,8 @@ Plug 'vim-scripts/STL-improved'
 " Auto close brackets, etc
 Plug 'cohama/lexima.vim'
 
-" Add plugins to &runtimepath
 call plug#end()
 
-" set background=light
-" let g:solarized_termcolors=256
-syntax enable
 
 " Function for stripping Trailing Whitespace
 " http://unix.stackexchange.com/questions/75430/how-to-automatically-strip-trailing-spaces-on-save-in-vi-and-vim
@@ -248,4 +244,9 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 set laststatus=2
 set mouse=a
+
+" Latex-Suite
+let g:Tex_DefaultTargetFormat = 'dvi'
+let g:Tex_CompileRule_pdf = 'pdflatex --shell-escape -interaction=nonstopmode $*'
+let g:Tex_CompileRule_dvi = 'latex --shell-escape -interaction=nonstopmode $*'
 
