@@ -27,12 +27,11 @@ There are two things you can do about this warning:
  '(custom-enabled-themes (quote (sanityinc-tomorrow-eighties)))
  '(custom-safe-themes
    (quote
-    ("628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
+    ("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default)))
  '(line-number-mode nil)
  '(package-selected-packages
    (quote
     (company-auctex company rainbow-delimiters color-theme-sanityinc-tomorrow flycheck editorconfig auctex)))
- '(preview-scale-function 1.4)
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -65,3 +64,10 @@ There are two things you can do about this warning:
 
 ;; Disable toolbar
 (tool-bar-mode -1)
+
+;; Set default file coding to UTF-8 with Unix line endings
+(setq-default buffer-file-coding-system 'utf-8-unix)
+
+;; Emacs theme
+(set-default 'preview-scale-function 1.2)
+(load-theme 'tango t)
