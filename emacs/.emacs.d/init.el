@@ -31,7 +31,7 @@ There are two things you can do about this warning:
  '(line-number-mode nil)
  '(package-selected-packages
    (quote
-    (company-auctex company rainbow-delimiters color-theme-sanityinc-tomorrow flycheck editorconfig auctex)))
+    (helm async company-auctex company rainbow-delimiters color-theme-sanityinc-tomorrow flycheck editorconfig auctex)))
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -71,3 +71,6 @@ There are two things you can do about this warning:
 ;; Emacs theme
 (set-default 'preview-scale-function 1.2)
 (load-theme 'tango t)
+
+;; Automatic restoration on closing
+(desktop-save-mode 1)
