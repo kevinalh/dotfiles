@@ -22,8 +22,9 @@ There are two things you can do about this warning:
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(TeX-source-correlate-mode t)
  '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
+   [default bold shadow italic underline bold bold-italic bold])
  '(custom-enabled-themes (quote (sanityinc-tomorrow-eighties)))
  '(custom-safe-themes
    (quote
@@ -31,7 +32,7 @@ There are two things you can do about this warning:
  '(line-number-mode nil)
  '(package-selected-packages
    (quote
-    (helm async company-auctex company rainbow-delimiters color-theme-sanityinc-tomorrow flycheck editorconfig auctex)))
+    (popwin which-key magit latex-preview-pane company-lsp lsp-ui lsp-mode eglot helm async company-auctex company rainbow-delimiters color-theme-sanityinc-tomorrow flycheck editorconfig auctex)))
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
@@ -45,6 +46,11 @@ There are two things you can do about this warning:
 ;; https://stackoverflow.com/questions/445873/how-can-i-make-emacs-mouse-scrolling-slower-and-smoother
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 5) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
+
+;; Global nice things
+(global-hl-line-mode 1); Highlight current row
+;; Hooks for all files
+(add-hook 'find-file-hook 'rainbow-delimiters-mode)
 
 ;; Make AUCTeX aware of style files and multi-file documents right away..
 (setq TeX-auto-save t)
@@ -69,8 +75,11 @@ There are two things you can do about this warning:
 (setq-default buffer-file-coding-system 'utf-8-unix)
 
 ;; Emacs theme
-(set-default 'preview-scale-function 1.2)
-(load-theme 'tango t)
+(set-default 'preview-scale-function 1.3)
+(load-theme 'sanityinc-tomorrow-eighties t)
 
 ;; Automatic restoration on closing
 (desktop-save-mode 1)
+
+;; LaTeX mode hooks
+(add-hook 'TeX-mode-hook 'reftex-mode)
