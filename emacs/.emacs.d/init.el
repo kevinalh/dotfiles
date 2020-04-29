@@ -51,41 +51,28 @@ There are two things you can do about this warning:
 
 ;; Global nice things
 (global-hl-line-mode 1); Highlight current row
-;; Hooks for all files
-(add-hook 'find-file-hook 'rainbow-delimiters-mode)
-
-;; Make AUCTeX aware of style files and multi-file documents right away..
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq-default TeX-master nil)
-
-;; Add tikz environment to preview-latex for AUCTeX
-(eval-after-load "preview"
-  '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t)
-  )
-
-;; Tell RefTeX to fetch bibliography considering these commands
-(setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
-
-;; Delete trailing whitespace on save
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-;; Disable toolbar
-(tool-bar-mode -1)
-
-;; Set default file coding to UTF-8 with Unix line endings
-(setq-default buffer-file-coding-system 'utf-8-unix)
-
-;; Emacs theme
-(set-default 'preview-scale-function 1.3)
+(tool-bar-mode -1); Disable toolbar
 (load-theme 'sanityinc-tomorrow-eighties t)
-
-;; Automatic restoration on closing
-(desktop-save-mode 1)
-
-;; LaTeX mode hooks
-(add-hook 'TeX-mode-hook 'reftex-mode)
+(setq-default buffer-file-coding-system 'utf-8-unix); Unix line endings and UTF-8 encoding
+(desktop-save-mode 1); Automatic restoration on closing
+;; Hooks
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'find-file-hook 'rainbow-delimiters-mode)
 
 ;; Projectile
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+;; AUCTeX
+(add-hook 'TeX-mode-hook 'reftex-mode); RefTeX mode by default
+(set-default 'preview-scale-function 1.3); Preview size
+;; Make AUCTeX aware of style files and multi-file documents right away..
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+;; Add tikz environment to preview-latex for AUCTeX
+(eval-after-load "preview"
+  '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t)
+  )
+;; Tell RefTeX to fetch bibliography considering these commands
+(setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
