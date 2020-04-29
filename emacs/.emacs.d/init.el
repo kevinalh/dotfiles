@@ -32,7 +32,7 @@ There are two things you can do about this warning:
  '(line-number-mode nil)
  '(package-selected-packages
    (quote
-    (erlang projectile popwin which-key magit latex-preview-pane company-lsp lsp-ui lsp-mode eglot helm async company-auctex company rainbow-delimiters color-theme-sanityinc-tomorrow flycheck editorconfig auctex)))
+    (flycheck-tip erlang projectile popwin which-key magit latex-preview-pane company-lsp lsp-ui lsp-mode eglot helm async company-auctex company rainbow-delimiters color-theme-sanityinc-tomorrow flycheck editorconfig auctex)))
  '(popwin-mode t)
  '(tool-bar-mode nil)
  '(tooltip-mode nil)
