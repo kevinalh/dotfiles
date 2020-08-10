@@ -76,3 +76,9 @@ There are two things you can do about this warning:
   )
 ;; Tell RefTeX to fetch bibliography considering these commands
 (setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
+
+;; Erlang
+(setq load-path (cons "/usr/lib/erlang/lib/tools-3.3/emacs" load-path))
+(setq erlang-root-dir "/usr/lib/erlang")
+(setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
+(require 'erlang-start)
