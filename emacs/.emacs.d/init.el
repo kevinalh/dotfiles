@@ -32,7 +32,7 @@ There are two things you can do about this warning:
  '(line-number-mode nil)
  '(package-selected-packages
    (quote
-    (flycheck-tip erlang projectile popwin which-key magit latex-preview-pane company-lsp lsp-ui lsp-mode eglot helm async company-auctex company rainbow-delimiters color-theme-sanityinc-tomorrow flycheck editorconfig auctex)))
+    (ledger-mode hledger-mode flycheck-tip erlang projectile popwin which-key magit latex-preview-pane company-lsp lsp-ui lsp-mode eglot helm async company-auctex company rainbow-delimiters color-theme-sanityinc-tomorrow flycheck editorconfig auctex)))
  '(popwin-mode t)
  '(tool-bar-mode nil)
  '(tooltip-mode nil)
@@ -82,3 +82,8 @@ There are two things you can do about this warning:
 (setq erlang-root-dir "/usr/lib/erlang")
 (setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
 (require 'erlang-start)
+
+;; Required to use hledger instead of ledger itself.
+(setq ledger-mode-should-check-version nil
+      ledger-report-links-in-register nil
+      ledger-binary-path "hledger")
