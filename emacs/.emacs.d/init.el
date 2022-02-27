@@ -87,3 +87,15 @@ There are two things you can do about this warning:
 (setq ledger-mode-should-check-version nil
       ledger-report-links-in-register nil
       ledger-binary-path "hledger")
+
+;; Nice theme for Emacs
+(use-package modus-themes
+    :ensure
+    :init
+    (setq modus-themes-italic-constructs t
+	  modus-themes-bold-constructs t
+	  modus-themes-region '(bg-only no-extend))
+    (modus-themes-load-themes)
+    :config
+    (modus-themes-load-operandi)
+)
