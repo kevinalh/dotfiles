@@ -134,3 +134,4 @@ There are two things you can do about this warning:
 (tool-bar-mode -1); Disable toolbar
 (setq-default buffer-file-coding-system 'utf-8-unix); Unix line endings and UTF-8 encoding
 (desktop-save-mode 1); Automatic restoration on closing
+(global-display-line-numbers-mode)
