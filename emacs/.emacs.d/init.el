@@ -88,8 +88,12 @@ There are two things you can do about this warning:
 (add-hook 'find-file-hook 'rainbow-delimiters-mode)
 
 ;; Projectile
-(projectile-mode +1)
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(use-package projectile
+  :ensure
+  :init
+  (projectile-mode +1)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+)
 
 ;; AUCTeX
 (add-hook 'TeX-mode-hook 'reftex-mode); RefTeX mode by default
