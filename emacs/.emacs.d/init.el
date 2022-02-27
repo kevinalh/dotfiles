@@ -29,7 +29,7 @@ There are two things you can do about this warning:
  '(awesome-tray-mode-line-inactive-color "#d7d7d7")
  '(custom-enabled-themes '(sanityinc-tomorrow-eighties))
  '(custom-safe-themes
-   '("74a50f18c8c88eac44dc73d7a4c0bbe1f3e72ff5971aac38fcf354ddad0d4733" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default))
+   '("aa72e5b41780bfff2ff55d0cc6fcd4b42153386088a4025fed606c1099c2d9b8" "74a50f18c8c88eac44dc73d7a4c0bbe1f3e72ff5971aac38fcf354ddad0d4733" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" default))
  '(exwm-floating-border-color "#888888")
  '(flymake-error-bitmap '(flymake-double-exclamation-mark modus-themes-fringe-red))
  '(flymake-note-bitmap '(exclamation-mark modus-themes-fringe-cyan))
@@ -83,12 +83,6 @@ There are two things you can do about this warning:
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 5) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
 
-;; Global nice things
-(global-hl-line-mode 1); Highlight current row
-(tool-bar-mode -1); Disable toolbar
-(load-theme 'sanityinc-tomorrow-eighties t)
-(setq-default buffer-file-coding-system 'utf-8-unix); Unix line endings and UTF-8 encoding
-(desktop-save-mode 1); Automatic restoration on closing
 ;; Hooks
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'find-file-hook 'rainbow-delimiters-mode)
@@ -134,3 +128,9 @@ There are two things you can do about this warning:
     :config
     (modus-themes-load-operandi)
 )
+
+;; Global nice things
+(global-hl-line-mode 1); Highlight current row
+(tool-bar-mode -1); Disable toolbar
+(setq-default buffer-file-coding-system 'utf-8-unix); Unix line endings and UTF-8 encoding
+(desktop-save-mode 1); Automatic restoration on closing
