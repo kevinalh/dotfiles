@@ -90,6 +90,7 @@ There are two things you can do about this warning:
 
 ;; Nice theme for Emacs
 (use-package modus-themes
+    ; Ensures that the package gets installed
     :ensure
     :init
     (setq modus-themes-italic-constructs t
